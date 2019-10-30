@@ -19,7 +19,7 @@ public class FrmConversiones extends javax.swing.JFrame {
      */
     public FrmConversiones() {
         initComponents();
-         this.getContentPane().setBackground(Color.orange);
+        this.getContentPane().setBackground(Color.orange);
         this.setLocationRelativeTo(null);
     }
 
@@ -45,6 +45,14 @@ public class FrmConversiones extends javax.swing.JFrame {
         rbSegundos = new javax.swing.JRadioButton();
         lblConversionH = new javax.swing.JLabel();
         lblResultadoHoras = new javax.swing.JLabel();
+        lblTitulokg = new javax.swing.JLabel();
+        txtKg = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        rbKilos = new javax.swing.JRadioButton();
+        rbGramos = new javax.swing.JRadioButton();
+        txtGrs = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        btnConvertir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -53,6 +61,12 @@ public class FrmConversiones extends javax.swing.JFrame {
 
         lblMetros.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblMetros.setText("Metros  =");
+
+        txtMetros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMetrosActionPerformed(evt);
+            }
+        });
 
         rbMilimetros.setText("Milimetros");
         rbMilimetros.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +111,47 @@ public class FrmConversiones extends javax.swing.JFrame {
         lblConversionH.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lblConversionH.setText("Conversion");
 
+        lblTitulokg.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        lblTitulokg.setText("Kilos <--> Gramos");
+
+        txtKg.setEnabled(false);
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("KG");
+
+        rbKilos.setText("KG-------->GRS");
+        rbKilos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbKilosActionPerformed(evt);
+            }
+        });
+
+        rbGramos.setText("KG<-------GRS");
+        rbGramos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbGramosActionPerformed(evt);
+            }
+        });
+
+        txtGrs.setEnabled(false);
+        txtGrs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtGrsActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel5.setText("GRS");
+
+        btnConvertir.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnConvertir.setText("Convertir");
+        btnConvertir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConvertirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -104,36 +159,64 @@ public class FrmConversiones extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rbCentimetros)
-                                    .addComponent(rbMilimetros))
-                                .addGap(42, 42, 42)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblMetros, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtMetros, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel1))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(rbMinutos)
-                                    .addComponent(rbSegundos))
-                                .addGap(58, 58, 58)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblConversionH)
-                                    .addComponent(lblResultadoHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(76, 76, 76)
+                        .addComponent(lblTitulokg, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(lblHoras)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(436, Short.MAX_VALUE))
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtKg, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(26, 26, 26)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnConvertir)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(rbKilos)
+                                            .addComponent(rbGramos))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(28, 28, 28)
+                                                .addComponent(jLabel5))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(18, 18, 18)
+                                                .addComponent(txtGrs, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(rbMinutos)
+                                                .addComponent(rbSegundos))
+                                            .addGap(58, 58, 58)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(lblConversionH)
+                                                .addComponent(lblResultadoHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(rbCentimetros)
+                                            .addGap(44, 44, 44)
+                                            .addComponent(jLabel3))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lblHoras)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(txtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(rbMilimetros)
+                                                    .addComponent(lblMetros, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtMetros, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(7, 7, 7)
+                                            .addComponent(jLabel1)))
+                                    .addGap(6, 6, 6))))))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,27 +227,49 @@ public class FrmConversiones extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMetros, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtMetros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbMilimetros)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbCentimetros)
-                    .addComponent(lblResultado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(rbMilimetros)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rbCentimetros))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(lblResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHoras)
                     .addComponent(txtHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbMinutos)
-                    .addComponent(lblConversionH))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblConversionH, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(rbMinutos))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbSegundos)
                     .addComponent(lblResultadoHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(120, 120, 120))
+                .addGap(18, 18, 18)
+                .addComponent(lblTitulokg, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtKg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(rbKilos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rbGramos))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtGrs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(btnConvertir)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -207,7 +312,7 @@ public class FrmConversiones extends javax.swing.JFrame {
 
         try {
             double Minutos = Double.parseDouble(txtHoras.getText());
-            lblResultadoHoras.setText(String.valueOf(Minutos*60));
+            lblResultadoHoras.setText(String.valueOf(Minutos * 60));
             txtMetros.setText("");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error, Debes ingresar un valor!");
@@ -215,17 +320,56 @@ public class FrmConversiones extends javax.swing.JFrame {
     }//GEN-LAST:event_rbMinutosActionPerformed
 
     private void rbSegundosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbSegundosActionPerformed
-       rbMinutos.setSelected(false);
+        rbMinutos.setSelected(false);
         rbSegundos.setSelected(true);
 
         try {
             double Segundos = Double.parseDouble(txtHoras.getText());
-            lblResultadoHoras.setText(String.valueOf(Segundos*3600));
+            lblResultadoHoras.setText(String.valueOf(Segundos * 3600));
             txtMetros.setText("");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error, Debes ingresar un valor!");
         }
     }//GEN-LAST:event_rbSegundosActionPerformed
+
+    private void txtMetrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMetrosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMetrosActionPerformed
+
+    private void rbGramosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbGramosActionPerformed
+        rbKilos.setSelected(false);
+        rbGramos.setSelected(true);
+        txtGrs.setEnabled(true);
+
+        txtGrs.setText("");
+
+    }//GEN-LAST:event_rbGramosActionPerformed
+
+    private void rbKilosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbKilosActionPerformed
+        rbKilos.setSelected(true);
+        rbGramos.setSelected(false);
+        txtKg.setEnabled(true);
+        txtKg.setText("");
+    }//GEN-LAST:event_rbKilosActionPerformed
+
+    private void txtGrsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGrsActionPerformed
+
+    }//GEN-LAST:event_txtGrsActionPerformed
+
+    private void btnConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertirActionPerformed
+        if (rbKilos.isSelected()) {
+            double Kilos = Double.parseDouble(txtKg.getText());
+
+            txtGrs.setText(String.valueOf(Kilos * 1000));
+            txtKg.setText("");
+        } else {
+            double Gramos = Double.parseDouble(txtGrs.getText());
+            txtKg.setText(String.valueOf(Gramos * .001));
+            txtGrs.setText("");
+        }
+
+
+    }//GEN-LAST:event_btnConvertirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,18 +407,26 @@ public class FrmConversiones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConvertir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblConversionH;
     private javax.swing.JLabel lblHoras;
     private javax.swing.JLabel lblMetros;
     private javax.swing.JLabel lblResultado;
     private javax.swing.JLabel lblResultadoHoras;
+    private javax.swing.JLabel lblTitulokg;
     private javax.swing.JRadioButton rbCentimetros;
+    private javax.swing.JRadioButton rbGramos;
+    private javax.swing.JRadioButton rbKilos;
     private javax.swing.JRadioButton rbMilimetros;
     private javax.swing.JRadioButton rbMinutos;
     private javax.swing.JRadioButton rbSegundos;
+    private javax.swing.JTextField txtGrs;
     private javax.swing.JTextField txtHoras;
+    private javax.swing.JTextField txtKg;
     private javax.swing.JTextField txtMetros;
     // End of variables declaration//GEN-END:variables
 }
