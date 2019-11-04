@@ -55,6 +55,7 @@ public class FrmConversiones extends javax.swing.JFrame {
         btnConvertir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("CONVERSIONES");
@@ -358,15 +359,30 @@ public class FrmConversiones extends javax.swing.JFrame {
 
     private void btnConvertirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConvertirActionPerformed
         if (rbKilos.isSelected()) {
-            double Kilos = Double.parseDouble(txtKg.getText());
-
+           try{
+               double Kilos = Double.parseDouble(txtKg.getText());
+           
             txtGrs.setText(String.valueOf(Kilos * 1000));
             txtKg.setText("");
-        } else {
-            double Gramos = Double.parseDouble(txtGrs.getText());
+            txtKg.setEnabled(false);
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error, Debes ingresar un valor!");
+        }
+        }else if (rbGramos.isSelected()) {
+            try{
+                double Gramos = Double.parseDouble(txtGrs.getText());
+            
             txtKg.setText(String.valueOf(Gramos * .001));
             txtGrs.setText("");
+            txtGrs.setEnabled(false);
+            }catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error, Debes ingresar un valor!");
         }
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Error, Debes seleccionar una opcion");
+        }
+        
 
 
     }//GEN-LAST:event_btnConvertirActionPerformed
